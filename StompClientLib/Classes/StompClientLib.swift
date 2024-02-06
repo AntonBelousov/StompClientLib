@@ -7,7 +7,8 @@
 //  Updated at March 07, 2021
 //
 
-import UIKit
+// import UIKit
+import Foundation
 import SocketRocket
 
 struct StompCommands {
