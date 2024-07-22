@@ -83,41 +83,41 @@ class ViewController: UIViewController, StompClientLibDelegate {
     
     func stompClientDidConnect(client: StompClientLib!) {
         let topic = self.topic
-        print("Socket is Connected : \(topic)")
+        // print("Socket is Connected : \(topic)")
         socketClient.subscribe(destination: topic)
         connectionLabel.text = "Socket is connected successfully!"
         connectionLabel.textColor = UIColor.systemGreen
     }
     
     func stompClientDidDisconnect(client: StompClientLib!) {
-        print("Socket is Disconnected")
+        // print("Socket is Disconnected")
         connectionLabel.text = "Socket is disconnected"
         connectionLabel.textColor = UIColor.purple
     }
     
     func stompClient(client: StompClientLib!, didReceiveMessageWithJSONBody jsonBody: AnyObject?, akaStringBody stringBody: String?, withHeader header: [String : String]?, withDestination destination: String) {
-        print("DESTINATION : \(destination)")
-        print("JSON BODY : \(String(describing: jsonBody))")
-        print("STRING BODY : \(stringBody ?? "nil")")
+        // print("DESTINATION : \(destination)")
+        // print("JSON BODY : \(String(describing: jsonBody))")
+        // print("STRING BODY : \(stringBody ?? "nil")")
     }
     
     func stompClientJSONBody(client: StompClientLib!, didReceiveMessageWithJSONBody jsonBody: String?, withHeader header: [String : String]?, withDestination destination: String) {
-        print("DESTINATION : \(destination)")
-        print("String JSON BODY : \(String(describing: jsonBody))")
+        // print("DESTINATION : \(destination)")
+        // print("String JSON BODY : \(String(describing: jsonBody))")
     }
     
     func serverDidSendReceipt(client: StompClientLib!, withReceiptId receiptId: String) {
-        print("Receipt : \(receiptId)")
+        // print("Receipt : \(receiptId)")
     }
     
     func serverDidSendError(client: StompClientLib!, withErrorMessage description: String, detailedErrorMessage message: String?) {
-        print("Error : \(String(describing: message))")
+        // print("Error : \(String(describing: message))")
         connectionLabel.text = "Failed to Connect!"
         connectionLabel.textColor = UIColor.red
     }
     
     func serverDidSendPing() {
-        print("Server Ping")
+        // print("Server Ping")
     }
     
 }

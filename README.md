@@ -106,7 +106,7 @@ After you are connected, there are some delegate methods that you need to implem
 
 ```swift
 func stompClientDidConnect(client: StompClientLib!) {
-print("Socket is connected")
+// print("Socket is connected")
 // Stomp subscribe will be here!
 socketClient.subscribe(destination: topic)
 // Note : topic needs to be a String object
@@ -117,7 +117,7 @@ socketClient.subscribe(destination: topic)
 
 ```swift
 func stompClientDidDisconnect(client: StompClientLib!) {
-print("Socket is Disconnected")
+// print("Socket is Disconnected")
 }
 ```
 
@@ -127,9 +127,9 @@ Your json message will be converted to JSON Body as AnyObject and you will recei
 
 ```swift
 func stompClient(client: StompClientLib!, didReceiveMessageWithJSONBody jsonBody: AnyObject?, akaStringBody stringBody: String?, withHeader header: [String : String]?, withDestination destination: String) {
-print("Destination : \(destination)")
-print("JSON Body : \(String(describing: jsonBody))")
-print("String Body : \(stringBody ?? "nil")")
+// print("Destination : \(destination)")
+// print("JSON Body : \(String(describing: jsonBody))")
+// print("String Body : \(stringBody ?? "nil")")
 }
 ```
 
@@ -139,8 +139,8 @@ Your json message will be converted to JSON Body as AnyObject and you will recei
 
 ```swift
 func stompClientJSONBody(client: StompClientLib!, didReceiveMessageWithJSONBody jsonBody: String?, withHeader header: [String : String]?, withDestination destination: String) {
-  print("DESTINATION : \(destination)")
-  print("String JSON BODY : \(String(describing: jsonBody))")
+  // print("DESTINATION : \(destination)")
+  // print("String JSON BODY : \(String(describing: jsonBody))")
 }
 ```
 
@@ -150,7 +150,7 @@ If you will use STOMP for in-app purchase, you might need to use this function t
 
 ```swift
 func serverDidSendReceipt(client: StompClientLib!, withReceiptId receiptId: String) {
-  print("Receipt : \(receiptId)")
+  // print("Receipt : \(receiptId)")
 }
 ```
 
@@ -160,7 +160,7 @@ Your error message will be received in this function
 
 ```swift
 func serverDidSendError(client: StompClientLib!, withErrorMessage description: String, detailedErrorMessage message: String?) {
-  print("Error Send : \(String(describing: message))")
+  // print("Error Send : \(String(describing: message))")
 }
 ```
 
@@ -170,7 +170,7 @@ If you need to control your server's ping, here is your part
 
 ```swift
 func serverDidSendPing() {
-  print("Server ping")
+  // print("Server ping")
 }
 ```
 

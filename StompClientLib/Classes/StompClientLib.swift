@@ -88,11 +88,11 @@ public class StompClientLib: NSObject, SRWebSocketDelegate {
         do {
             let theJSONData = try JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions())
             let theJSONText = String(data: theJSONData, encoding: String.Encoding.utf8)
-            //print(theJSONText!)
+            //// print(theJSONText!)
             let header = [StompCommands.commandHeaderContentType:"application/json;charset=UTF-8"]
             sendMessage(message: theJSONText!, toDestination: destination, withHeaders: header, withReceipt: nil)
         } catch {
-            print("error serializing JSON: \(error)")
+            // print("error serializing JSON: \(error)")
         }
     }
     
@@ -198,12 +198,12 @@ public class StompClientLib: NSObject, SRWebSocketDelegate {
     }
     
     public func webSocketDidOpen(_ webSocket: SRWebSocket!) {
-        print("WebSocket is connected")
+        // print("WebSocket is connected")
         connect()
     }
     
     public func webSocket(_ webSocket: SRWebSocket!, didFailWithError error: Error!) {
-        print("didFailWithError: \(String(describing: error))")
+        // print("didFailWithError: \(String(describing: error))")
         
         if let delegate = delegate {
             DispatchQueue.main.async(execute: {
@@ -213,7 +213,7 @@ public class StompClientLib: NSObject, SRWebSocketDelegate {
     }
     
     public func webSocket(_ webSocket: SRWebSocket!, didCloseWithCode code: Int, reason: String!, wasClean: Bool) {
-        print("didCloseWithCode \(code), reason: \(String(describing: reason))")
+        // print("didCloseWithCode \(code), reason: \(String(describing: reason))")
         if let delegate = delegate {
             DispatchQueue.main.async(execute: {
                 delegate.stompClientDidDisconnect(client: self)
@@ -222,7 +222,7 @@ public class StompClientLib: NSObject, SRWebSocketDelegate {
     }
     
     public func webSocket(_ webSocket: SRWebSocket!, didReceivePong pongPayload: Data!) {
-        print("didReceivePong")
+        // print("didReceivePong")
     }
     
     private func sendFrame(command: String?, header: [String: String]?, body: AnyObject?) {
@@ -284,7 +284,7 @@ public class StompClientLib: NSObject, SRWebSocketDelegate {
                     return json as AnyObject
                 }
             } catch {
-                print("error serializing JSON: \(error)")
+                // print("error serializing JSON: \(error)")
             }
         }
         return nil
@@ -468,7 +468,7 @@ public class StompClientLib: NSObject, SRWebSocketDelegate {
             // Fallback on earlier versions
             // Swift >=3 selector syntax
             //            Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.reconnectFallback), userInfo: nil, repeats: true)
-            print("Reconnect Feature has no support for below iOS 10, it is going to be available soon!")
+            // print("Reconnect Feature has no support for below iOS 10, it is going to be available soon!")
         }
     }
     //    @objc func reconnectFallback() {
