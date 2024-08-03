@@ -12,7 +12,7 @@ let package = Package(
             targets: ["StompClientLib"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/AntonBelousov/SocketRocket", .exact("0.7.1")),
+        .package(url: "https://github.com/AntonBelousov/SocketRocket", .exact("0.7.2")),
     ],
     targets: [
         .target(
